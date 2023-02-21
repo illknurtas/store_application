@@ -1,13 +1,14 @@
 import React,{Component} from "react";
 import CategoryList from "./components/CategoryList";
-import Nav from "./components/Nav";
+import Navi from "./components/Navi";
 import ProductList from "./components/ProductList";
 import {Container,Row, Col} from "reactstrap";
 
 export default class App extends Component {
   state={
     currentCategory :"",
-    products:[]
+    products:[],
+    cart:[]
   };
   changeCategory = (category) => {
     this.setState({
@@ -28,15 +29,30 @@ export default class App extends Component {
     .then(response => response.json())
     .then(data => this.setState({products:data}));
   }
+  addToCart=(product)=>{
+    let newCart = this.state.cart;
+    const addedItem = newCart.find(
+      c=>c.product.id === product.id
+    );
+    if(addedItem){
+      addedItem.quamtity+=1;
+    }
+    else{
+      newCart.push({
+        product: product,
+        quamtity:1
+      });
+    }
+    this.setState({cart: newCart});
+  }
   render(){
     let categoryInfo = {title:"Category List"};
     let productInfo = {title:"Category List"};
     return(
       <div>
       <Container>
-        <Row>
-          <Nav/>
-        </Row>
+          <Navi
+          cart = {this.state.cart}/>
         <Row>
           <Col xs="3">
             <CategoryList 
@@ -46,10 +62,11 @@ export default class App extends Component {
           </Col>
           <Col xs="9">
             <ProductList 
+            info={productInfo}
             products = {this.state.products}
             currentCategory={this.state.currentCategory}
             changeCategory={this.changeCategory}
-            info={productInfo}/>
+            addToCart ={this.addToCart}/>
           </Col>
         </Row>
       </Container>
