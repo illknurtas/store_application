@@ -48,7 +48,7 @@ export default class App extends Component {
       });
     }
     this.setState({cart: newCart});
-    alertify.success(product.productName+" added to cart",3);
+    alertify.success(product.productName+" added to cart",2);
   }
   removeFromCart=(product)=>{
     let newCart = this.state.cart.filter(
@@ -57,6 +57,7 @@ export default class App extends Component {
     this.setState({
       cart: newCart,
     });
+    alertify.error(product.productName+" removed from cart",2);
   }
   render(){
     let categoryInfo = {title:"Categories"};
@@ -87,7 +88,14 @@ export default class App extends Component {
                 changeCategory={this.changeCategory}
                 addToCart ={this.addToCart}/>
                 }/>
-              <Route exact path="/cart" element={<CartPage/>}/>
+              <Route 
+              exact 
+              path="/cart" 
+              element={
+                <CartPage 
+                cart = {this.state.cart}
+                removeFromCart ={this.removeFromCart}/>
+                }/>
               <Route path="*" element={<NotFound/>}></Route>
             </Routes>
           </Col>
