@@ -36,12 +36,12 @@ export default class App extends Component {
       c=>c.product.id === product.id
     );
     if(addedItem){
-      addedItem.quamtity+=1;
+      addedItem.quantity+=1;
     }
     else{
       newCart.push({
         product: product,
-        quamtity:1
+        quantity:1
       });
     }
     this.setState({cart: newCart});

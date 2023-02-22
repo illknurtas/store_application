@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Table } from 'reactstrap';
+import {Table, Button } from 'reactstrap';
 import {HiOutlinePlus} from 'react-icons/hi'
 
 export default class ProductList extends Component {
@@ -29,11 +29,11 @@ export default class ProductList extends Component {
                   <td>{product.unitPrice}</td>
                   <td>{product.unitsInStock}</td>
                   <td>
-                  <button type="button" 
+                  <Button type="button" 
                   onClick={()=>this.props.addToCart(product)}
                   className="btn btn-info">
                     <HiOutlinePlus/>
-                  </button>
+                  </Button>
                   </td>
 
                 </tr>
