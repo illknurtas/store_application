@@ -7,13 +7,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText,
 } from "reactstrap";
-import {BsMinecartLoaded} from "react-icons/bs"
+import CartList from "./CartList";
+
 export default class Navi extends React.Component {
   constructor(props) {
     super(props);
@@ -42,16 +39,8 @@ export default class Navi extends React.Component {
                 <NavItem>
                   <NavLink href="#">GitHub</NavLink>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                     <BsMinecartLoaded/> - {this.props.cart.length} Item(s)
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>option1</DropdownItem>
-                    <DropdownItem>option2</DropdownItem>
-                    <DropdownItem>Reset</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                <CartList cart={this.props.cart}
+                removeFromCart={this.props.removeFromCart}/>
               </Nav>
             </Collapse>
           </NavbarText>
