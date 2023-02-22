@@ -5,8 +5,9 @@ import ProductList from "./components/ProductList";
 import {Container,Row, Col} from "reactstrap";
 import alertify from "alertifyjs";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "./components/NotFound";
-import CartPage from "./components/CartPage";
+import NotFound from "./routers/NotFound";
+import CartPage from "./routers/CartPage";
+import FormDemo1 from "./forms/FormDemo1";
 
 export default class App extends Component {
   state={
@@ -96,6 +97,7 @@ export default class App extends Component {
                 cart = {this.state.cart}
                 removeFromCart ={this.removeFromCart}/>
                 }/>
+                <Route path="/form1" element={<FormDemo1/>}></Route>
               <Route path="*" element={<NotFound/>}></Route>
             </Routes>
           </Col>
