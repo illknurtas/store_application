@@ -35,9 +35,7 @@ export default class Navi extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink>
-                    <Link to="form1">Form Demo-1</Link>
-                  </NavLink>
+                  <Link className="nav-link" to="form1">Form Demo-1</Link>
                 </NavItem>
                 <NavItem>
                   <NavLink href="#">GitHub</NavLink>
