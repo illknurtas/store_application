@@ -17,19 +17,19 @@ export default class CartList extends Component {
       <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
                 <HiShoppingCart/> 
-                {/* -  {this.props.cart.length} Item(s) */}
             </DropdownToggle>
             <DropdownMenu end>
               {
                 this.props.cart.map(
                   cartItem => (
                     <DropdownItem key={cartItem.product.id}>
-                      <Badge color='danger'
+                      <Badge  color='danger'
                       onClick={()=> this.props.removeFromCart(cartItem.product)}>
                         X
                       </Badge>
                       {cartItem.product.productName}
-                      <Badge color="info">
+                      <Badge style={{backgroundColor:"#303032df"}}
+                      dark>
                         {cartItem.quantity}
                       </Badge>
                       </DropdownItem>
@@ -38,7 +38,7 @@ export default class CartList extends Component {
               }
                 <DropdownItem divider/>
                 <DropdownItem>
-                  <Link to="cart">Go to cart</Link>
+                  <Link to="cart" style={{color:"#27272d", textDecoration:"none" }}>Go to cart</Link>
                 </DropdownItem>
             </DropdownMenu>
         </UncontrolledDropdown>

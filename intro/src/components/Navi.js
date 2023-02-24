@@ -7,7 +7,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   NavbarText,
 } from "reactstrap";
 import CartList from "./CartList";
@@ -28,20 +27,17 @@ export default class Navi extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar 
+        style={{backgroundColor:"#2f2f30"}}
+        dark
+        expand="xl">
           <NavbarBrand href="/">Store App</NavbarBrand>
           <NavbarText>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <Link className="nav-link" to="form1">Form Demo-1</Link>
-                </NavItem>
-                <NavItem>
-                  <Link className="nav-link" to="form2">Form Demo-2</Link>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#">GitHub</NavLink>
+                  <Link className="nav-link" to="form2">Login</Link>
                 </NavItem>
                 <CartList cart={this.props.cart}
                 removeFromCart={this.props.removeFromCart}/>

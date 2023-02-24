@@ -2,7 +2,7 @@ import alertify from 'alertifyjs';
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
-export default class FormDemo2 extends Component {
+export default class LogIn extends Component {
     state = {
         email:"",
         password:"",
@@ -29,7 +29,7 @@ export default class FormDemo2 extends Component {
                 type="email" 
                 name="email" 
                 id='email' 
-                placeholder='Enter e-mail'
+                placeholder='Your e-mail'
                 onChange={this.handleChange}></Input>
             </FormGroup>
             <FormGroup>
@@ -38,33 +38,11 @@ export default class FormDemo2 extends Component {
                 type="password" 
                 name="password" 
                 id='password' 
-                placeholder='Enter your password'
+                placeholder='Your password'
                 onChange={this.handleChange}></Input>
             </FormGroup>
-            <FormGroup>
-                <Label for="description">Description:</Label>
-                <Input 
-                type="textarea" 
-                name="description" 
-                id='description' 
-                placeholder='Enter a description'
-                onChange={this.handleChange}></Input>
-            </FormGroup>
-            <FormGroup>
-                <Label for='city'>City</Label>
-                <Input 
-                type='select'
-                name='city'
-                id='city'
-                onChange={this.handleChange}>
-                    <option>İstanbul</option>
-                    <option>Ankara</option>
-                    <option>Çanakkale</option>
-                    <option>İzmir</option>
-                    <option>Kastamonu</option>
-                </Input>
-            </FormGroup>
-            <Button type='submit'>Save</Button>
+            <Button type='submit'>Login</Button>
+            
         </Form>
       </div>
     )

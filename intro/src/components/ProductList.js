@@ -31,7 +31,7 @@ export default class ProductList extends Component {
                   <td>
                   <Button type="button" 
                   onClick={()=>this.props.addToCart(product)}
-                  className="btn btn-info">
+                  className="btn">
                     <HiOutlinePlus/>
                   </Button>
                   </td>

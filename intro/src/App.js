@@ -7,8 +7,8 @@ import alertify from "alertifyjs";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./routers/NotFound";
 import CartPage from "./routers/CartPage";
-import FormDemo1 from "./forms/FormDemo1";
-import FormDemo2 from "./forms/FormDemo2";
+import LogIn from "./forms/LogIn";
+import SignUp from "./forms/SignUp";
 
 export default class App extends Component {
   state={
@@ -62,7 +62,7 @@ export default class App extends Component {
     alertify.error(product.productName+" removed from cart",2);
   }
   render(){
-    let categoryInfo = {title:"Categories"};
+    let categoryInfo = {title:""};
     let productInfo = {title:"Products"};
     return(
       <div>
@@ -75,7 +75,8 @@ export default class App extends Component {
             <CategoryList 
             currentCategory={this.state.currentCategory}
             changeCategory={this.changeCategory}
-            info={categoryInfo}/>
+            info={categoryInfo}
+            />
           </Col>
           <Col xs="9">
             <Routes>
@@ -98,8 +99,8 @@ export default class App extends Component {
                 cart = {this.state.cart}
                 removeFromCart ={this.removeFromCart}/>
                 }/>
-                <Route path="/form1" element={<FormDemo1/>}></Route>
-                <Route path="/form2" element={<FormDemo2/>}></Route>
+                <Route path="/login" element={<LogIn/>}></Route>
+                <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="*" element={<NotFound/>}></Route>
             </Routes>
           </Col>
